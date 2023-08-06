@@ -9,6 +9,7 @@ import { ApiError } from '../types/ApiError'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import ProductItem from '../components/ProductItem'
+import { Helmet } from 'react-helmet-async'
 
 
 type State = {
@@ -63,6 +64,9 @@ useEffect(() => {
     
       loading ? (<LoadingBox/>) :error ?(<MessageBox variant="danger" > {error}</MessageBox>):(
               <Row>
+                <Helmet>
+                  <title>Ecom King</title>
+                </Helmet>
              {
               sampleProducts.map((product) => {
                 return (
