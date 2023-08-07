@@ -4,7 +4,7 @@ import { Product } from "./types/Product";
 export const sampleProducts: Product[] = [
     {
         name:'Slim shirt',
-    slug: 'Slim shirt',
+    slug: 'slimshirt',
     image:'../images/p1.jpg',
     category:'Shirt',
     brand:'Nike',
@@ -16,7 +16,7 @@ export const sampleProducts: Product[] = [
     },
     {
         name:'Denim shirt',
-    slug: 'Full shirt',
+    slug: 'fullshirt',
     image:'../images/p2.jpg',
     category:'Shirt',
     brand:'Nike',
@@ -28,7 +28,7 @@ export const sampleProducts: Product[] = [
     },
     {
         name:'Formal Pant',
-    slug: 'Full Pant',
+    slug: 'fullPant',
     image:'../images/p7.jpg',
     category:'Pant',
     brand:'Adidas',
@@ -40,12 +40,12 @@ export const sampleProducts: Product[] = [
     },
     {
         name:'Full Jeans',
-    slug: 'Full Jeans',
+    slug: 'fulljeans',
     image:'../images/p6.jpg',
     category:'Pant',
     brand:'Killer',
     price:220,
-    countInStock:8,
+    countInStock:0,
     description:'High Quality Jeans',
     rating:4.9,
     numReviews:22
