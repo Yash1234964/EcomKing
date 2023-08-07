@@ -17,6 +17,8 @@
     // "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
 
     "outDir": "./build",
-    "jsx": "react"
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
