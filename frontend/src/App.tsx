@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Navbar,Container,NavbarBrand,Nav,Row,Col, Button } from 'react-bootstrap'
+import { Navbar,Container,NavbarBrand,Nav,Row,Col, Button, Badge } from 'react-bootstrap'
 import { sampleProducts } from './data'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { useContext, useEffect } from 'react';
-import { Store } from './store';
+import { Store } from './Store';
 
 function App() {
 
-  const {state:{mode} , dispatch} = useContext(Store);
+  const {state:{mode,cart} , dispatch} = useContext(Store);
 
   useEffect(() => {
      document.body.setAttribute('data-bs-theme',mode)
@@ -29,7 +29,12 @@ function App() {
             <Button variant={mode} onClick = {switchModeHandler} >
               <i className={mode=== 'light'?'fa fa-sun' : 'fa fa-moon'} > </i>
             </Button>
-            <a href='/cart' className="nav-link">Cart</a>
+            <Link to='/cart' className="nav-link">
+              Cart
+              {cart.cartItems.length > 0 && (<Badge pill bg='danger'>
+                        {cart.cartItems.reduce((a,c) => a + c.quantity,0)}
+              </Badge>)}
+              </Link>
             <a href='/login' className="nav-link">Sign In</a>
           </Nav>
         </Navbar>
