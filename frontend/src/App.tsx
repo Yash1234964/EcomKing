@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Navbar,Container,NavbarBrand,Nav,Row,Col, Button, Badge } from 'react-bootstrap'
-import { sampleProducts } from './data'
 import { Link, Outlet } from 'react-router-dom'
 import { useContext, useEffect } from 'react';
 import { Store } from './Store';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { LinkContainer } from 'react-router-bootstrap';
 
 function App() {
 
@@ -20,10 +22,14 @@ function App() {
   return (
     <>
     <div className='d-flex flex-column h-full vh-100'>
+      <ToastContainer position='bottom-center' limit={1}/>
       <header>
         <Navbar  expand="lg">
           <Container>
-          <NavbarBrand>Ecom King</NavbarBrand>
+            <LinkContainer to={'/'}>
+            <NavbarBrand>Ecom King</NavbarBrand>
+            </LinkContainer>
+          
           </Container>
           <Nav>
             <Button variant={mode} onClick = {switchModeHandler} >
