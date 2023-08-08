@@ -6,6 +6,7 @@ import { errors } from '@typegoose/typegoose';
 import { productRouter } from './routers/productRouter';
 import express from 'express';
 import { seedRouter } from './routers/seedRouter';
+import { userRouter } from './routers/userRouter';
 
 
 dotenv.config({ path: '../.env' })
@@ -30,7 +31,11 @@ app.use(
     })
 )
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}));
+
 app.use('/api/products', productRouter)
+app.use('/api/users', userRouter)
 app.use('/api/seed', seedRouter)
 
 const PORT=4000
