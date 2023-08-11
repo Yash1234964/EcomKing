@@ -13,7 +13,7 @@ import {
 import { HelmetProvider } from "react-helmet-async";
 import HomePage from "./pages/HomePage.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
-import axios from "axios";
+// import axios from "axios";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StoreProvider } from "./Store.tsx";
@@ -25,6 +25,7 @@ import PaymentMethodPage from "./pages/PaymentMethodPage.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import PlaceOrderPage from "./pages/PlaceOrderPage.tsx";
 import OrderPage from "./pages/OrderPage.tsx";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -51,12 +52,14 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <StoreProvider>
-      <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router}></RouterProvider>
-          <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
-        </QueryClientProvider>
-      </HelmetProvider>
+      <PayPalScriptProvider options={{ clientId: "sb" }} deferLoading={true}>
+        <HelmetProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router}></RouterProvider>
+            <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
+          </QueryClientProvider>
+        </HelmetProvider>
+      </PayPalScriptProvider>
     </StoreProvider>
   </React.StrictMode>
 );

@@ -23,6 +23,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@paypal/react-paypal-js": "^8.1.1",
     "@typegoose/typegoose": "^11.4.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
