@@ -29,12 +29,6 @@ export default function OrderPage() {
   const params = useParams();
   const { id: orderId } = params;
 
-  // const {
-  //   data: order,
-  //   isLoading,
-  //   error,
-  //   refetch,
-  // } = useGetOrderDetailsQuery(orderId!);
   const {
     data: order,
     isLoading,

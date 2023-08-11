@@ -102,7 +102,7 @@ export default function PlaceOrderPage() {
                       <Col md={3}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.price}</Col>
+                      <Col md={3}>₹{item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -140,7 +140,7 @@ export default function PlaceOrderPage() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong>${cart.totalPrice.toFixed(2)}</strong>
+                      <strong>₹{cart.totalPrice.toFixed(2)}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
